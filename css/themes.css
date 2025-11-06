@@ -1,0 +1,135 @@
+/* Sistema de Temas TRON */
+:root {
+    /* Tema por defecto - TRON Classic */
+    --primary-color: #00ffff;
+    --secondary-color: #ff00ff;
+    --warning-color: #ffff00;
+    --danger-color: #ff0000;
+    --success-color: #00ff00;
+    --bg-dark: #000000;
+    --bg-darker: #0a0a0a;
+    --bg-card: rgba(0, 255, 255, 0.05);
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+}
+
+/* Tema Matrix */
+.theme-matrix {
+    --primary-color: #00ff00;
+    --secondary-color: #008000;
+    --warning-color: #ffff00;
+    --danger-color: #ff0000;
+    --success-color: #00ff00;
+    --bg-dark: #000000;
+    --bg-darker: #001100;
+    --bg-card: rgba(0, 255, 0, 0.05);
+    --text-primary: #00ff00;
+    --text-secondary: #008800;
+}
+
+/* Tema Cyberpunk */
+.theme-cyberpunk {
+    --primary-color: #ff00ff;
+    --secondary-color: #00ffff;
+    --warning-color: #ffff00;
+    --danger-color: #ff0000;
+    --success-color: #00ff00;
+    --bg-dark: #0a0014;
+    --bg-darker: #150028;
+    --bg-card: rgba(255, 0, 255, 0.05);
+    --text-primary: #ffffff;
+    --text-secondary: #cc99ff;
+}
+
+/* Tema Monocromo */
+.theme-monochrome {
+    --primary-color: #ffffff;
+    --secondary-color: #888888;
+    --warning-color: #aaaaaa;
+    --danger-color: #666666;
+    --success-color: #dddddd;
+    --bg-dark: #000000;
+    --bg-darker: #111111;
+    --bg-card: rgba(255, 255, 255, 0.05);
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+}
+
+/* Tema Solarized */
+.theme-solarized {
+    --primary-color: #268bd2;
+    --secondary-color: #2aa198;
+    --warning-color: #b58900;
+    --danger-color: #dc322f;
+    --success-color: #859900;
+    --bg-dark: #002b36;
+    --bg-darker: #001f27;
+    --bg-card: rgba(38, 139, 210, 0.05);
+    --text-primary: #839496;
+    --text-secondary: #586e75;
+}
+
+/* Modo Claro */
+.theme-light {
+    --primary-color: #0066cc;
+    --secondary-color: #0099ff;
+    --warning-color: #ff9900;
+    --danger-color: #cc0000;
+    --success-color: #00cc66;
+    --bg-dark: #f0f0f0;
+    --bg-darker: #ffffff;
+    --bg-card: rgba(0, 102, 204, 0.05);
+    --text-primary: #333333;
+    --text-secondary: #666666;
+}
+
+/* Sistema de Transiciones Suaves */
+body {
+    transition: all 0.5s ease-in-out;
+}
+
+/* Selector de Temas en UI */
+.theme-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--bg-card);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.theme-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+.theme-option {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-option:hover {
+    transform: scale(1.2);
+    border-color: var(--text-primary);
+}
+
+.theme-option.active {
+    border-color: var(--text-primary);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Colores de los temas en el selector */
+.theme-option[data-theme="default"] { background: #00ffff; }
+.theme-option[data-theme="matrix"] { background: #00ff00; }
+.theme-option[data-theme="cyberpunk"] { background: #ff00ff; }
+.theme-option[data-theme="monochrome"] { background: #ffffff; }
+.theme-option[data-theme="solarized"] { background: #268bd2; }
+.theme-option[data-theme="light"] { background: #0066cc; }

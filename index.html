@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRON - Dashboard de Ciberseguridad</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tron-effects.css">
+    <link rel="stylesheet" href="css/themes.css">
+</head>
+
+<body>
+    <!-- Fondo TRON -->
+    <div class="tron-bg">
+        <div class="grid"></div>
+        <div class="light-trail" id="lightTrail"></div>
+        <div class="light-cycle" id="lightCycle"></div>
+        <div class="energy-pulse" id="energyPulse"></div>
+        <div class="particles-container" id="particlesContainer"></div>
+        <div class="scan-line" id="scanLine"></div>
+    </div>
+
+    <!-- Contenedor Principal -->
+    <div class="container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1 class="title">TRON CYBER DEFENSE</h1>
+                <div class="system-status">
+                    <div class="status-indicator" id="systemStatus">
+                        <span class="status-dot"></span>
+                        SISTEMA SEGURO - <span id="securityLevel">98%</span>
+                    </div>
+                    <div class="datetime" id="currentTime">00:00:00</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Panel de Métricas Principales -->
+        <section class="metrics-panel">
+            <div class="metric-card critical">
+                <div class="metric-icon">🚨</div>
+                <div class="metric-data">
+                    <div class="metric-value" id="criticalAlerts">3</div>
+                    <div class="metric-label">Alertas Críticas</div>
+                </div>
+                <div class="metric-trend up">↑</div>
+            </div>
+
+            <div class="metric-card warning">
+                <div class="metric-icon">⚠️</div>
+                <div class="metric-data">
+                    <div class="metric-value" id="threatsBlocked">247</div>
+                    <div class="metric-label">Amenazas Bloqueadas</div>
+                </div>
+                <div class="metric-trend down">↓</div>
+            </div>
+
+            <div class="metric-card info">
+                <div class="metric-icon">👥</div>
+                <div class="metric-data">
+                    <div class="metric-value" id="activeUsers">42</div>
+                    <div class="metric-label">Usuarios Activos</div>
+                </div>
+                <div class="metric-trend stable">→</div>
+            </div>
+
+            <div class="metric-card success">
+                <div class="metric-icon">🛡️</div>
+                <div class="metric-data">
+                    <div class="metric-value" id="defensesActive">12/12</div>
+                    <div class="metric-label">Defensas Activas</div>
+                </div>
+                <div class="metric-trend stable">→</div>
+            </div>
+        </section>
+
+        <!-- Sección Principal de Contenido -->
+        <main class="main-content">
+            <!-- Columna Izquierda -->
+            <div class="content-column">
+                <!-- Mapa de Amenazas -->
+                <div class="panel threat-map">
+                    <div class="panel-header">
+                        <h3>🌐 Mapa de Amenazas Global</h3>
+                        <button class="panel-control">⟳</button>
+                    </div>
+                    <div class="panel-content">
+                        <div class="world-map" id="worldMap">
+                            <!-- Puntos de amenazas se generarán dinámicamente -->
+                        </div>
+                        <div class="threat-stats">
+                            <div class="threat-stat">
+                                <span class="region">AMÉRICA</span>
+                                <span class="count">84</span>
+                            </div>
+                            <div class="threat-stat">
+                                <span class="region">EUROPA</span>
+                                <span class="count">67</span>
+                            </div>
+                            <div class="threat-stat">
+                                <span class="region">ASIA</span>
+                                <span class="count">92</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alertas en Tiempo Real -->
+                <div class="panel realtime-alerts">
+                    <div class="panel-header">
+                        <h3>🚨 Alertas en Tiempo Real</h3>
+                        <button class="panel-control">⏸️</button>
+                    </div>
+                    <div class="panel-content">
+                        <div class="alerts-list" id="alertsList">
+                            <!-- Alertas se generarán dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Derecha -->
+            <div class="content-column">
+                <!-- Gráfico de Actividad -->
+                <div class="panel activity-chart">
+                    <div class="panel-header">
+                        <h3>📊 Actividad de Red</h3>
+                        <div class="time-filter">
+                            <button class="time-btn active">24H</button>
+                            <button class="time-btn">7D</button>
+                            <button class="time-btn">1M</button>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <canvas id="networkChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- Estado de Defensas -->
+                <div class="panel defenses-status">
+                    <div class="panel-header">
+                        <h3>🛡️ Estado de Defensas</h3>
+                        <button class="panel-control">↻</button>
+                    </div>
+                    <div class="panel-content">
+                        <div class="defense-list">
+                            <div class="defense-item active">
+                                <span class="defense-name">Firewall Principal</span>
+                                <span class="defense-status online">ONLINE</span>
+                            </div>
+                            <div class="defense-item active">
+                                <span class="defense-name">IDS/IPS</span>
+                                <span class="defense-status online">ONLINE</span>
+                            </div>
+                            <div class="defense-item warning">
+                                <span class="defense-name">Antivirus</span>
+                                <span class="defense-status updating">ACTUALIZANDO</span>
+                            </div>
+                            <div class="defense-item active">
+                                <span class="defense-name">VPN Gateway</span>
+                                <span class="defense-status online">ONLINE</span>
+                            </div>
+                            <div class="defense-item active">
+                                <span class="defense-name">SIEM</span>
+                                <span class="defense-status online">ONLINE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel de Control -->
+                <div class="panel control-panel">
+                    <div class="panel-header">
+                        <h3>⚙️ Control Rápido</h3>
+                    </div>
+                    <div class="panel-content">
+                        <div class="control-buttons">
+                            <button class="control-btn scan" id="scanNetwork">
+                                🔍 Escanear Red
+                            </button>
+                            <button class="control-btn block" id="blockThreats">
+                                🚫 Bloquear Amenazas
+                            </button>
+                            <button class="control-btn report" id="generateReport">
+                                📊 Generar Reporte
+                            </button>
+                            <button class="control-btn backup" id="backupSystem">
+                                💾 Backup Sistema
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <div class="footer-content">
+                <div class="system-info">
+                    <span>TRON Cyber Defense v2.1</span>
+                    <span>|</span>
+                    <span id="uptime">Uptime: 15d 7h 32m</span>
+                    <span>|</span>
+                    <span id="lastUpdate">Última actualización: Ahora</span>
+                </div>
+                <div class="system-controls">
+                    <button class="sys-btn" id="audioToggle">🔊 Audio</button>
+                    <button class="sys-btn" id="themeToggle">🎨 Tema</button>
+                    <button class="sys-btn" id="fullscreenBtn">⛶ Pantalla Completa</button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/tron-animations.js"></script>
+    <script src="js/cyber-data.js"></script>
+    <script src="js/realtime-socket.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/view-modes.js"></script>
+    <script src="js/dashboard-builder.js"></script>
+    <script src="js/keyboard-shortcuts.js"></script>
+</body>
+
+</html>
